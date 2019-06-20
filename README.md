@@ -10,4 +10,10 @@ sudo pip3 install newsparer
 sudo pip3 install requests
 
 
+*  using
+
+python3 main.py
+
+
+
 
