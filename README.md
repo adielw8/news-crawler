@@ -16,7 +16,7 @@ python3 main.py
 
 - Search for word in article
 
-$python3 main <word>
+python3 main [word]
 
 
 
