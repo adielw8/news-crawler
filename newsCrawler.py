@@ -8,7 +8,7 @@ class myNewsCrawler():
         self.companies = companies
         self.newsPaper = {}
         self.data['newspapers'] = {}
-        self.limit = 500
+        self.limit = 20
 
     def downloadHtml(self):    
         for company, value in self.companies.items():
@@ -31,28 +31,28 @@ class myNewsCrawler():
                 article = {}
                 article['link'] = content.url
                 try:
-                    #task 1
+             
                     content.download()
                     print(count, "download articles from", company, "url: ", content.url)
                     
                 except:
                     continue
-                                #task 2
+
                 article.update(self.cleanHtml(content.html))
                 count +=1 
-                #task 3
+
                 newsPaper['articles'].append(article)
                    
             self.data['newspapers'][company] = newsPaper
-            open("newsPaperData.json","w").write(str(self.data))
+            open("newsPaperData.json","wb").write(str(self.data).encode('UTF-8'))
             print(".....................................................")
 
 
-    #task 4
+
     def findWord(self,word):  
         find = 0
 
-        d = open("newsPaperData.json","r").read()
+        d = open("newsPaperData.json","rb").read()
         newsArticles = eval(d)
         newsArticles = newsArticles["newspapers"]
         for x ,y in newsArticles.items():
@@ -61,6 +61,7 @@ class myNewsCrawler():
                 findInText = article["text"].find(word)
                 if findInTitle != -1 or findInText != -1:
                     find +=1
+                    
                     print(find ,"find","'"+word+"'" ,"in " +x+" url:",article["link"])
 
 

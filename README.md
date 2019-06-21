@@ -5,7 +5,7 @@ fox news and cnn crawler
 
 python3 
 
-sudo pip3 install newsparer 
+sudo pip3 install newspaper3k
 
 sudo pip3 install requests
 
@@ -13,6 +13,11 @@ sudo pip3 install requests
 *  using
 
 python3 main.py
+
+- Search for word in article
+
+python3 main <word>
+
 
 
 
